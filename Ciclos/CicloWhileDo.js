@@ -12,3 +12,22 @@ do{
     console.log(contador++);
     //contador++;
 }while(contador <= repeticiones)
+
+
+//ACUMULADOR SUMA PERO CON WHILE Y DO WHILE
+let i = 1, numList=5, acum=0;
+while(i<= numList){
+    console.log(`${acum} + ${i}`)
+    acum += i
+    console.log(acum)
+    i++;
+}
+
+//DO WHILE
+let i = 1, numList=5, acum=0;
+do{
+    console.log(`${acum} + ${i}`)
+    acum += i;
+    console.log(acum)
+    i++;
+}while(i<=numList)
