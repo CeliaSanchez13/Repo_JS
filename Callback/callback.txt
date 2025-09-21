@@ -51,9 +51,9 @@ En cada iteración, forEach llama al callback print pasándole el número actual
 ➡️ Aquí, el callback se ejecuta de inmediato en cada vuelta del forEach.
 
 📌 Ejemplo de callback asíncrono
-setTimeout(() => {
-  console.log("Han pasado 2 segundos");
-}, 2000);
+        setTimeout(() => {
+        console.log("Han pasado 2 segundos");
+        }, 2000);
 
 
 El setTimeout recibe como primer parámetro una función callback (aquí, una función flecha).
@@ -67,3 +67,72 @@ Naturaleza	|   Puede ser síncrono o asíncrono
 Uso común	|   Iterar (forEach, map), manejar eventos, controlar resultados de operaciones lentas
 Ventaja	    |   Permite código flexible y reutilizable
 Precaución	|   Un abuso de callbacks anidados → “Callback Hell”, resuelto con Promesas y async/await
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+// Example of an asynchronous function
+function f(callback) {
+   callback(); 
+}
+
+f(() => console.log('This is a callback'));
+
+console.log('Hello world!');
+
+
+
+
+1️⃣ Definición de f
+function f(callback) {
+   callback(); 
+}
+
+
+Aquí solo defines la función f. No imprime nada todavía.
+
+2️⃣ Llamada a f
+f(() => console.log('This is a callback'));
+
+
+Llamas a f pasando como argumento una función flecha.
+
+Dentro de f, inmediatamente se ejecuta callback().
+
+Eso imprime:
+
+This is a callback
+
+
+Ojo: aunque comentaste que es un ejemplo "asincrónico", en realidad f es sincrónica, porque ejecuta el callback en el momento, sin ningún setTimeout, Promise, etc.
+
+3️⃣ Último console.log
+console.log('Hello world!');
+
+
+Después de que f termina, se ejecuta este console.log.
+
+📤 Orden real de salida en consola
+This is a callback
+Hello world!
+
+
+💡 Si quisieras que fuera realmente asincrónico, podrías usar setTimeout dentro de f:
+
+function f(callback) {
+   setTimeout(callback, 0);
+}
+
+f(() => console.log('This is a callback'));
+console.log('Hello world!');
+
+
+➡️ Ahora la salida sería:
+
+Hello world!
+This is a callback
