@@ -1,0 +1,69 @@
+function print(number) {
+    console.log(number);
+}
+const numbers = [1, 2, 3, 4];
+numbers.forEach(print);
+
+Digamos que puedes hacer un array.forEach(una funcion pero number seria como la posicion)
+
+📌 ¿Qué es un callback en JavaScript?
+
+Un callback es una función que se pasa como argumento a otra función para que esta la ejecute más tarde (en el momento adecuado).
+Sirve para:
+
+    - Personalizar el comportamiento de funciones genéricas.
+
+    - Manejar resultados de operaciones asincrónicas (aunque no todos los callbacks son asincrónicos).
+
+En JS, las funciones son “ciudadanos de primera clase”, es decir, se pueden almacenar en variables, pasar como argumentos y devolver desde otras funciones.
+
+📌 Tipos de callbacks
+
+Síncronos → se ejecutan inmediatamente, dentro de la misma llamada.
+
+Asíncronos → se ejecutan cuando termina una operación (ej. al leer un archivo, tras un setTimeout, o cuando llega la respuesta de una API).
+
+📌 Ejemplo que diste (callback síncrono)
+function print(number) {
+  console.log(number);
+}
+
+const numbers = [1, 2, 3, 4];
+numbers.forEach(print);
+
+
+🔍 Explicación:
+
+print es una función que imprime un número.
+
+forEach recorre cada elemento del array numbers.
+
+En cada iteración, forEach llama al callback print pasándole el número actual.
+
+📤 Salida:
+
+1
+2
+3
+4
+
+
+➡️ Aquí, el callback se ejecuta de inmediato en cada vuelta del forEach.
+
+📌 Ejemplo de callback asíncrono
+setTimeout(() => {
+  console.log("Han pasado 2 segundos");
+}, 2000);
+
+
+El setTimeout recibe como primer parámetro una función callback (aquí, una función flecha).
+
+Esta se ejecutará después del tiempo indicado, sin bloquear el resto del programa.
+
+📝 Resumen final
+Concepto	|       Descripción
+Definición	|   Función pasada como argumento a otra para que la ejecute más tarde
+Naturaleza	|   Puede ser síncrono o asíncrono
+Uso común	|   Iterar (forEach, map), manejar eventos, controlar resultados de operaciones lentas
+Ventaja	    |   Permite código flexible y reutilizable
+Precaución	|   Un abuso de callbacks anidados → “Callback Hell”, resuelto con Promesas y async/await

@@ -33,11 +33,11 @@ Fin
 
 🔹 Asincronía
 
-Permite que algunas operaciones (como lecturas de archivos, solicitudes HTTP, timers, etc.) no bloqueen la ejecución.
+    - Permite que algunas operaciones (como lecturas de archivos, solicitudes HTTP, timers, etc.) no bloqueen la ejecución.
 
-El programa puede continuar mientras la tarea termina “en segundo plano”.
+    - El programa puede continuar mientras la tarea termina “en segundo plano”.
 
-JavaScript maneja esto con callbacks, promesas y async/await.
+    - JavaScript maneja esto con callbacks, promesas y async/await.
 
 📌 Ejemplo: código asincrónico con setTimeout
 
